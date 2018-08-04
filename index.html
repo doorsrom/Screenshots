@@ -4,6 +4,6 @@ title: Index
 <!doctype html><html><head><title>{{ page.title }}</title><style>html{font-family:arial;}img{max-width:144px}</style><meta name='viewport' content='width=device-width, initial-scale=1.0'></head><body>
 <h1>{{ page.title }}</h1>
 {% for file in site.static_files %}{% capture buffer_new %}{{ file.path | remove: file.name}}{% endcapture %}{% if buffer_new != buffer_old %}<h2>{{ file.path | remove: file.name}}</h2>
-{% endif %}{% if file.extname == ".jpeg" or file.extname == ".jpg" or file.extname == ".gif" or file.extname == ".png" or file.extname == ".bmp" or file.extname == ".ico" %}<img src="{{ site.baseurl }}{{ file.path }}">
+{% endif %}{% if file.extname == ".jpeg" or file.extname == ".jpg" or file.extname == ".gif" or file.extname == ".png" or file.extname == ".bmp" or file.extname == ".ico" %}<a href="{{ site.baseurl }}{{ file.path }}"><img src="{{ site.baseurl }}{{ file.path }}"></a>
 {% else %}<a href="{{ site.baseurl }}{{ file.path }}">{{ site.baseurl }}{{ file.path }}</a>
 {% endif %}{% capture buffer_old %}{{ file.path | remove: file.name}}{% endcapture %}{% endfor %}</body></html>
